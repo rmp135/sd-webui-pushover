@@ -8,7 +8,7 @@ from modules import script_callbacks
 from modules import shared
 
 def on_ui_settings():
-    section = ('template', "Template")
+    section = ("pushover", "Pushover")
     shared.opts.add_option(
         "pushover_app_token",
         shared.OptionInfo(
@@ -27,21 +27,21 @@ def on_ui_settings():
     )
 
 global_send_pushover_checkbox_txt2txt = gr.Checkbox(
-    label='Send Pushover Notification',
+    label="Send Pushover Notification",
     value=False,
-    elem_id='pushover_send_notification_txt2img'
+    elem_id="pushover_send_notification_txt2img"
 )
 global_send_pushover_checkbox_txt2img = gr.Checkbox(
-    label='Send Pushover Notification',
+    label="Send Pushover Notification",
     value=False,
-    elem_id='pushover_send_notification_img2img'
+    elem_id="pushover_send_notification_img2img"
 )
 
 def on_after_component(component, **_kwargs):
     global global_send_pushover_checkbox
-    if getattr(component, 'elem_id', None) == 'txt2img_enable_hr':
+    if getattr(component, "elem_id", None) == "txt2img_enable_hr":
         global_send_pushover_checkbox_txt2txt.render()
-    if getattr(component, 'elem_id', None) == 'img2img_tiling':
+    if getattr(component, "elem_id", None) == "img2img_tiling":
         global_send_pushover_checkbox_txt2img.render()
 
 script_callbacks.on_after_component(on_after_component)
