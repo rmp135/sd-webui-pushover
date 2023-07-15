@@ -88,7 +88,7 @@ def send_pushover_notification(token, user, message, title=None, url=None, url_t
 
     response = requests.post("https://api.pushover.net/1/messages.json", data=data)
 
-    if response.status_code is not 200:
+    if response.status_code != 200:
         print(f"Failed to send notification. Status code: {response.status_code}")
 
 # Construct user friendly time difference string
