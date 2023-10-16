@@ -60,9 +60,9 @@ def on_ui_settings():
 # Add checkboxes to UI in appropriate places
 def on_after_component(component, **_kwargs):
     global global_send_pushover_checkbox
-    if getattr(component, "elem_id", None) == "txt2img_enable_hr":
+    if getattr(component, "elem_id", None) == "txt2img_generate":
         global_send_pushover_checkbox_txt2txt.render()
-    if getattr(component, "elem_id", None) == "img2img_tiling":
+    if getattr(component, "elem_id", None) == "img2img_generate":
         global_send_pushover_checkbox_txt2img.render()
 
 script_callbacks.on_after_component(on_after_component)
